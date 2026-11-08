@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Currency - 通貨変換</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="logo">currency<span>.</span></div>
+      <div class="header-label">CURRENCY CONVERTER</div>
+    </header>
+
+    <section class="converter">
+      <p class="section-label">通貨変換</p>
+
+      <div class="currency-box">
+        <label for="fromCurrency">変換元</label>
+        <div class="currency-row">
+          <select id="fromCurrency">
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="HKD">🇭🇰 HKD</option>
+            <option value="TWD">🇹🇼 TWD</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="GBP">🇬🇧 GBP</option>
+            <option value="CNY">🇨🇳 CNY</option>
+            <option value="THB">🇹🇭 THB</option>
+            <option value="SGD">🇸🇬 SGD</option>
+            <option value="AUD">🇦🇺 AUD</option>
+          </select>
+          <input id="amount" type="number"
+            value="10000" min="0" step="any"
+            inputmode="decimal">
+        </div>
+      </div>
+
+      <div class="swap-area">
+        <button id="swapButton" aria-label="通貨を入れ替える">
+          ⇅
+        </button>
+      </div>
+
+      <div class="currency-box result-box">
+        <label for="toCurrency">変換先</label>
+        <div class="currency-row">
+          <select id="toCurrency">
+            <option value="USD">🇺🇸 USD</option>
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="HKD">🇭🇰 HKD</option>
+            <option value="TWD">🇹🇼 TWD</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="GBP">🇬🇧 GBP</option>
+            <option value="CNY">🇨🇳 CNY</option>
+            <option value="THB">🇹🇭 THB</option>
+            <option value="SGD">🇸🇬 SGD</option>
+            <option value="AUD">🇦🇺 AUD</option>
+          </select>
+          <div id="result" class="result">---</div>
+        </div>
+      </div>
+
+      <div class="rate-info">
+        <p id="rate">為替レートを取得しています...</p>
+        <p id="updated"></p>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <footer>
+      <p>Simple. Fast. Ad-free.</p>
+      <p>Rates provided by Frankfurter</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
