@@ -100,3 +100,11 @@ swapButton.addEventListener("click", () => {
 
 // 初回起動
 getExchangeRate();
+
+const clearButton = document.getElementById("clearButton");
+
+clearButton.addEventListener("click", () => {
+  amountInput.value = "";
+  convert();
+  amountInput.focus();
+});

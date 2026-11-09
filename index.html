@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,23 @@
   <title>Currency - 通貨変換</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="app">
+
     <header class="header">
       <div class="logo">currency<span>.</span></div>
       <div class="header-label">CURRENCY CONVERTER</div>
     </header>
 
     <section class="converter">
+
       <p class="section-label">通貨変換</p>
 
+      <!-- 変換元 -->
       <div class="currency-box">
         <label for="fromCurrency">変換元</label>
+
         <div class="currency-row">
           <select id="fromCurrency">
             <option value="JPY">🇯🇵 JPY</option>
@@ -34,20 +40,32 @@
             <option value="SGD">🇸🇬 SGD</option>
             <option value="AUD">🇦🇺 AUD</option>
           </select>
-          <input id="amount" type="number"
-            value="10000" min="0" step="any"
-            inputmode="decimal">
+
+          <div class="amount-area">
+            <input
+              id="amount"
+              type="number"
+              value="10000"
+              min="0"
+              step="any"
+              inputmode="decimal"
+            >
+            <button id="clearButton" type="button">クリア</button>
+          </div>
         </div>
       </div>
 
+      <!-- 通貨入れ替え -->
       <div class="swap-area">
         <button id="swapButton" aria-label="通貨を入れ替える">
           ⇅
         </button>
       </div>
 
+      <!-- 変換先 -->
       <div class="currency-box result-box">
         <label for="toCurrency">変換先</label>
+
         <div class="currency-row">
           <select id="toCurrency">
             <option value="USD">🇺🇸 USD</option>
@@ -62,24 +80,29 @@
             <option value="SGD">🇸🇬 SGD</option>
             <option value="AUD">🇦🇺 AUD</option>
           </select>
+
           <div id="result" class="result">---</div>
         </div>
       </div>
 
+      <!-- 為替レート情報 -->
       <div class="rate-info">
         <p id="rate">為替レートを取得しています...</p>
         <p id="updated"></p>
       </div>
 
       <p id="status" class="status" aria-live="polite"></p>
+
     </section>
 
     <footer>
       <p>Simple. Fast. Ad-free.</p>
       <p>Rates provided by Frankfurter</p>
     </footer>
+
   </main>
 
   <script src="app.js"></script>
 </body>
 </html>
+
