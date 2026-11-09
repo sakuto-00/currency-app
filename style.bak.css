@@ -1,0 +1,350 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7f8fa;
+  color: #222831;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+.app {
+  width: min(100% - 40px, 480px);
+  margin: 0 auto;
+  padding: 48px 0 24px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #6488d8;
+}
+
+.header-label {
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #9299a5;
+}
+
+.converter {
+  background: #fff;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(30, 40, 60, 0.04);
+}
+
+.tab-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 28px;
+  background: #f0f2f6;
+  border-radius: 10px;
+}
+
+.tab-button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  background: transparent;
+  color: #9299a5;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: #fff;
+  color: #5279d0;
+  box-shadow: 0 2px 6px rgba(30, 40, 60, 0.06);
+}
+
+.section-label {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 24px;
+}
+
+.currency-box {
+  padding: 18px;
+  background: #f7f8fa;
+  border-radius: 12px;
+}
+
+.currency-box label {
+  display: block;
+  font-size: 12px;
+  color: #9299a5;
+  margin-bottom: 14px;
+}
+
+.currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+select {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222831;
+  outline: none;
+  width: 110px;
+  min-width: 0;
+}
+
+input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  text-align: right;
+  font-size: 23px;
+  font-weight: 600;
+  color: #222831;
+}
+
+.amount-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.amount-area input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  text-align: right;
+}
+
+#clearButton {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #e9edf4;
+  color: #929baa;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#clearButton:hover {
+  background: #dce3ee;
+  color: #596579;
+}
+
+.swap-area {
+  display: flex;
+  justify-content: center;
+  margin: -1px 0;
+  position: relative;
+  z-index: 1;
+}
+
+#swapButton {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e6e9ef;
+  border-radius: 50%;
+  background: #fff;
+  color: #6488d8;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+#swapButton:hover {
+  background: #edf2ff;
+}
+
+.result-box {
+  background: #f0f4ff;
+}
+
+.result {
+  width: 100%;
+  text-align: right;
+  font-size: 25px;
+  font-weight: 700;
+  color: #5279d0;
+  overflow-wrap: anywhere;
+}
+
+.rate-info {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.rate-info p {
+  margin: 6px 0;
+  font-size: 12px;
+  color: #9299a5;
+}
+
+.status {
+  min-height: 18px;
+  font-size: 12px;
+  text-align: center;
+  color: #c45b5b;
+}
+
+/* 電卓 */
+
+.calculator-display {
+  background: #f7f8fa;
+  margin-bottom: 14px;
+}
+
+.calculator-display select {
+  width: 100%;
+}
+
+.calculator-expression {
+  min-height: 24px;
+  margin-top: 20px;
+  color: #9299a5;
+  text-align: right;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.calculator-result {
+  min-height: 45px;
+  color: #222831;
+  text-align: right;
+  font-size: 32px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+
+.calc-key {
+  min-width: 0;
+  min-height: 58px;
+  border: 1px solid #e9edf3;
+  border-radius: 12px;
+  background: #fff;
+  color: #222831;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.calc-key:active {
+  background: #edf2ff;
+}
+
+.function-key {
+  background: #f0f2f6;
+  color: #697487;
+}
+
+.operator-key {
+  background: #edf2ff;
+  color: #5279d0;
+}
+
+.equal-key {
+  grid-column: 4;
+  grid-row: span 2;
+  background: #6488d8;
+  color: #fff;
+  font-size: 25px;
+}
+
+.zero-key {
+  grid-column: span 2;
+}
+
+.calculator-yen {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f0f4ff;
+  border-radius: 12px;
+}
+
+.calculator-yen p {
+  margin: 0;
+  color: #9299a5;
+  font-size: 12px;
+}
+
+#calculatorYen {
+  margin-top: 8px;
+  color: #5279d0;
+  font-size: 25px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.calculator-rate {
+  margin-top: 6px !important;
+}
+
+footer {
+  margin-top: 36px;
+  text-align: center;
+  color: #a1a7b1;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+footer p {
+  margin: 4px;
+}
+
+@media (max-width: 400px) {
+  .app {
+    width: calc(100% - 24px);
+    padding-top: 32px;
+  }
+
+  .converter {
+    padding: 20px;
+  }
+
+  select {
+    width: 100px;
+  }
+
+  .calculator-display select {
+    width: 100%;
+  }
+
+  input,
+  .result {
+    font-size: 20px;
+  }
+
+  .calc-key {
+    min-height: 54px;
+  }
+}
+

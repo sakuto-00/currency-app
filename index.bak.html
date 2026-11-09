@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Currency - 通貨変換</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <header class="header">
+      <div class="logo">currency<span>.</span></div>
+      <div class="header-label">CURRENCY CONVERTER</div>
+    </header>
+
+    <section class="converter">
+
+      <nav class="tab-menu">
+        <button id="convertTab" class="tab-button active" type="button">変換</button>
+        <button id="calculatorTab" class="tab-button" type="button">電卓</button>
+      </nav>
+
+      <!-- 通貨変換画面 -->
+      <div id="convertPanel">
+        <p class="section-label">通貨変換</p>
+
+        <div class="currency-box">
+          <label for="fromCurrency">変換元</label>
+          <div class="currency-row">
+            <select id="fromCurrency">
+              <option value="JPY">🇯🇵 JPY</option>
+              <option value="USD">🇺🇸 USD</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="HKD">🇭🇰 HKD</option>
+              <option value="TWD">🇹🇼 TWD</option>
+              <option value="KRW">🇰🇷 KRW</option>
+              <option value="GBP">🇬🇧 GBP</option>
+              <option value="CNY">🇨🇳 CNY</option>
+              <option value="THB">🇹🇭 THB</option>
+              <option value="SGD">🇸🇬 SGD</option>
+              <option value="AUD">🇦🇺 AUD</option>
+            </select>
+
+            <div class="amount-area">
+              <input id="amount" type="number" value="10000"
+                min="0" step="any" inputmode="decimal">
+              <button id="clearButton" type="button" aria-label="金額をクリア">×</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="swap-area">
+          <button id="swapButton" type="button" aria-label="通貨を入れ替える">⇅</button>
+        </div>
+
+        <div class="currency-box result-box">
+          <label for="toCurrency">変換先</label>
+          <div class="currency-row">
+            <select id="toCurrency">
+              <option value="USD">🇺🇸 USD</option>
+              <option value="JPY">🇯🇵 JPY</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="HKD">🇭🇰 HKD</option>
+              <option value="TWD">🇹🇼 TWD</option>
+              <option value="KRW">🇰🇷 KRW</option>
+              <option value="GBP">🇬🇧 GBP</option>
+              <option value="CNY">🇨🇳 CNY</option>
+              <option value="THB">🇹🇭 THB</option>
+              <option value="SGD">🇸🇬 SGD</option>
+              <option value="AUD">🇦🇺 AUD</option>
+            </select>
+            <div id="result" class="result">---</div>
+          </div>
+        </div>
+
+        <div class="rate-info">
+          <p id="rate">為替レートを取得しています...</p>
+          <p id="updated"></p>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+      </div>
+
+      <!-- 電卓画面 -->
+      <div id="calculatorPanel" hidden>
+        <p class="section-label">買い物電卓</p>
+
+        <div class="currency-box calculator-display">
+          <label for="calculatorCurrency">計算する通貨</label>
+          <select id="calculatorCurrency">
+            <option value="USD">🇺🇸 USD</option>
+            <option value="HKD">🇭🇰 HKD</option>
+            <option value="TWD">🇹🇼 TWD</option>
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="GBP">🇬🇧 GBP</option>
+            <option value="CNY">🇨🇳 CNY</option>
+            <option value="THB">🇹🇭 THB</option>
+            <option value="SGD">🇸🇬 SGD</option>
+            <option value="AUD">🇦🇺 AUD</option>
+          </select>
+
+          <div id="calculatorExpression" class="calculator-expression">0</div>
+          <div id="calculatorResult" class="calculator-result">0</div>
+        </div>
+
+        <div class="calculator-keys">
+          <button class="calc-key function-key" data-action="clear">C</button>
+          <button class="calc-key function-key" data-action="backspace">⌫</button>
+          <button class="calc-key operator-key" data-value="÷">÷</button>
+          <button class="calc-key operator-key" data-value="×">×</button>
+
+          <button class="calc-key" data-value="7">7</button>
+          <button class="calc-key" data-value="8">8</button>
+          <button class="calc-key" data-value="9">9</button>
+          <button class="calc-key operator-key" data-value="−">−</button>
+
+          <button class="calc-key" data-value="4">4</button>
+          <button class="calc-key" data-value="5">5</button>
+          <button class="calc-key" data-value="6">6</button>
+          <button class="calc-key operator-key" data-value="+">+</button>
+
+          <button class="calc-key" data-value="1">1</button>
+          <button class="calc-key" data-value="2">2</button>
+          <button class="calc-key" data-value="3">3</button>
+          <button class="calc-key equal-key" data-action="equals">=</button>
+
+          <button class="calc-key zero-key" data-value="0">0</button>
+          <button class="calc-key" data-value=".">.</button>
+        </div>
+
+        <div class="calculator-yen">
+          <p>日本円換算</p>
+          <div id="calculatorYen">為替レートを取得しています...</div>
+          <p id="calculatorRate" class="calculator-rate"></p>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>Simple. Fast. Ad-free.</p>
+      <p>Rates provided by Frankfurter</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
